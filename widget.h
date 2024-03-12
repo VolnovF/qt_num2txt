@@ -8,6 +8,8 @@
 #include <QVBoxLayout>
 #include <QHBoxLayout>
 
+#include "numtotxt.h"
+
 class Widget : public QWidget
 {
     Q_OBJECT
