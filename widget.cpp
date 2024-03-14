@@ -26,6 +26,7 @@ Widget::Widget(QWidget *parent)
     setMinimumWidth(400);
     setMaximumHeight(150);
 
+
     //auto ntt = NumToTxt("f");
     //output_text->setText( QString::number(ntt.getSize()) );
 }

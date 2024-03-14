@@ -15,7 +15,8 @@ SOURCES += \
 
 HEADERS += \
     numtotxt.h \
-    widget.h
+    widget.h \
+    words.h
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
