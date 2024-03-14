@@ -72,18 +72,17 @@ QString NumToTxt::toText()
         {
             digitsUnnamedMask [i] = nullptr;
             digitsUnnamedMask [i-1] = numerals [3];
+            continue;
         }
         else if (i == 3)
         {
             if (digits [i] == 1 || digits [i] == 2)
             {
                 digitsUnnamedMask [i] = femaleOneAndTwo;
+                continue;
             }
         }
-        else
-        {
-            digitsUnnamedMask [i] = numerals [orderInSector(i)];
-        }
+        digitsUnnamedMask [i] = numerals [orderInSector(i)];
     }
 
     sectorName names [maxSize/3] {nullptr};
@@ -122,7 +121,7 @@ QString NumToTxt::toText()
                 sectorIsEmpty = false;
             }
         }
-        if (orderInSector(i) == 0 && !sectorIsEmpty)
+        if (orderInSector(i) == 0 && (!sectorIsEmpty || i == 0))
         {
             stream << names [getSector(i)].begin;
             stream << names [getSector(i)].end << ' ';
