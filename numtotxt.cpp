@@ -10,8 +10,8 @@ NumToTxt::NumToTxt(QString number)
 
 bool NumToTxt::setNumber(QString number)
 {
+    clear();
     QChar letter;
-    size = 0;
     for (int i = number.size() - 1; i > -1; --i)
     {
         letter = number [i];
@@ -86,10 +86,9 @@ QString NumToTxt::toText()
         }
     }
 
-    sectorName names [(maxSize-1)/3] {nullptr};
-    uint countNames {(size/3)+1};
+    sectorName names [maxSize/3] {nullptr};
     uint variantOfEnd {0};
-    for (uint i = 0; i < countNames; ++i)
+    for (uint i = 0; i*3 < size; ++i)
     {
         names[i].begin = sectorNameBegin [i];
         if(size > getIndex(i,1) && digits [getIndex(i,1)] == 1)
@@ -117,7 +116,7 @@ QString NumToTxt::toText()
     {
         if (digitsUnnamedMask [i])
         {
-            if (digits [i] != 0 || i == 0)
+            if (digits [i] != 0 || (i == 0 && text.isEmpty()))
             {
                 stream << digitsUnnamedMask [i] [digits [i]] << ' ';
                 sectorIsEmpty = false;

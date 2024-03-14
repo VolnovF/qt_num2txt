@@ -13,16 +13,17 @@
 class Widget : public QWidget
 {
     Q_OBJECT
-
 public:
     Widget(QWidget *parent = nullptr);
     ~Widget();
 
-private:
+    NumToTxt *converter;
     QVBoxLayout *layout;
     QPushButton *convert_button;
     QHBoxLayout *button_layout;
     QLineEdit *input_number;
     QTextEdit *output_text;
+public slots:
+    void convertToTxt();
 };
 #endif // WIDGET_H

@@ -4,10 +4,6 @@
 #include <QString>
 #include <QTextStream>
 
-//#include "words.h"
-
-//namespace w = words;
-
 class NumToTxt
 {
 private:

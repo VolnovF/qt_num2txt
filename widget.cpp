@@ -3,6 +3,8 @@
 Widget::Widget(QWidget *parent)
     : QWidget(parent)
 {
+    converter = new NumToTxt;
+
     input_number = new QLineEdit;
     input_number->setAlignment(Qt::AlignHCenter);
 
@@ -25,13 +27,16 @@ Widget::Widget(QWidget *parent)
     setLayout(layout);
     setMinimumWidth(400);
     setMaximumHeight(150);
-
-
-    //auto ntt = NumToTxt("f");
-    //output_text->setText( QString::number(ntt.getSize()) );
 }
 
 Widget::~Widget()
 {
+    delete converter;
+}
+
+void Widget::convertToTxt()
+{
+    converter->setNumber(input_number->text());
+    output_text->setText(converter->toText());
 }
 
