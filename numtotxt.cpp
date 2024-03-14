@@ -115,19 +115,19 @@ QString NumToTxt::toText()
     bool sectorIsEmpty {true};
     for (int i = size - 1; i > -1; --i)
     {
-        if (digitsUnnamedMask [i] && (digits [i] != 0 || i == 0))
+        if (digitsUnnamedMask [i])
         {
-            stream << digitsUnnamedMask [i] [digits [i]] << ' ';
-            sectorIsEmpty = false;
-        }
-        if (orderInSector(i) == 0)
-        {
-            if (!sectorIsEmpty)
+            if (digits [i] != 0 || i == 0)
             {
-                stream << names [getSector(i)].begin;
-                stream << names [getSector(i)].end << ' ';
-                sectorIsEmpty = true;
+                stream << digitsUnnamedMask [i] [digits [i]] << ' ';
+                sectorIsEmpty = false;
             }
+        }
+        if (orderInSector(i) == 0 && !sectorIsEmpty)
+        {
+            stream << names [getSector(i)].begin;
+            stream << names [getSector(i)].end << ' ';
+            sectorIsEmpty = true;
         }
     }
 
