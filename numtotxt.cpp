@@ -115,7 +115,7 @@ QString NumToTxt::toText()
     {
         if (digitsUnnamedMask [i])
         {
-            if (digits [i] != 0 || (i == 0 && text.isEmpty()))
+            if (digits [i] != 0 || (i == 0 && text.isEmpty()) || digitsUnnamedMask [i] == numerals [3])
             {
                 stream << digitsUnnamedMask [i] [digits [i]] << ' ';
                 sectorIsEmpty = false;
