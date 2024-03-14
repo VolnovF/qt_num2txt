@@ -22,6 +22,7 @@ public:
     QPushButton *convert_button;
     QHBoxLayout *button_layout;
     QLineEdit *input_number;
+    QHBoxLayout *input_layout;
     QTextEdit *output_text;
 public slots:
     void convertToTxt();
